@@ -1,0 +1,29 @@
+task:
+  name: "allegro_task3_dynamic_grasp_tool_use"
+  robot: "Allegro Hand"
+  project_type: "educational pure-RL baseline"
+  description: >
+    Task3 trains Allegro Hand with a controlled floating base to approach,
+    grasp, lift, stabilize, and orient table-top tools such as a pen or cup.
+    This is a pure-RL baseline, not a demonstration or mocap imitation task.
+
+spaces:
+  hand_action_dim: 16
+  base_action_dim: 6
+  action_dim: 22
+  actor_obs_dim: 147
+  privileged_obs_dim: 168
+  frame_stack: 5
+
+objects:
+  table_size_xy: 0.8
+  table_thickness: 0.04
+  pen_size: [0.14, 0.016, 0.016]
+  cup_size: [0.07, 0.07, 0.09]
+  use_only_pen: true
+
+notes:
+  - "This task is harder than Task1 pose tracking and Task2 in-hand reorientation."
+  - "The floating base is controlled by writing the robot root pose, while the Allegro hand still uses joint position targets."
+  - "Training must use the unified TRUE skrl PPO framework after environment tests pass."
+  - "Large checkpoints, logs, generated assets, and videos should not be committed."

@@ -1,0 +1,25 @@
+task:
+  name: "allegro_task2_inhand_reorientation"
+  robot: "Allegro Hand"
+  project_type: "educational pure-RL baseline"
+  description: >
+    Task2 trains Allegro Hand to keep an object in the palm and rotate it
+    toward a target quaternion. The environment supports actor observations
+    and privileged critic observations.
+
+spaces:
+  action_dim: 16
+  actor_obs_dim: 83
+  privileged_obs_dim: 88
+  frame_stack: 5
+
+objects:
+  cube_size: 0.06
+  sphere_radius: 0.035
+  object_spawn_height: 0.54
+  use_only_cube: true
+
+notes:
+  - "This is a pure-RL baseline for in-hand object reorientation."
+  - "Better dexterous manipulation can benefit from demonstration or mocap data, but this task keeps a generated-target RL baseline."
+  - "Large generated data, checkpoints, and logs should not be committed."

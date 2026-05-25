@@ -1,0 +1,34 @@
+task:
+  name: "allegro_task4_blind_sim2real_rma"
+  robot: "Allegro Hand"
+  project_type: "educational pure-RL + RMA-style Sim2Real baseline"
+  description: >
+    Task4 trains a blind student policy for robust in-hand reorientation.
+    The student observes only proprioception, delayed/noisy actuator signals,
+    tactile contact, target quaternion, and long history. Teacher/critic can
+    access object state and privileged domain randomization parameters.
+
+spaces:
+  action_dim: 16
+  blind_obs_dim: 108
+  teacher_obs_dim: 139
+  privileged_obs_dim: 206
+  history_frame_dim: 104
+  history_length: 50
+  history_obs_dim: 5200
+
+sim2real:
+  actuator_delay: true
+  actuator_deadzone: true
+  motor_efficiency_randomization: true
+  joint_stiffness_damping_randomization: true
+  tactile_noise_dropout: true
+  state_noise_dropout: true
+  mass_friction_scale_com_inertia_randomization: true
+  external_disturbance_recovery: true
+
+notes:
+  - "Task4 is independent from Task1/Task2/Task3; do not inherit other task envs."
+  - "Training must use the unified TRUE skrl framework later."
+  - "Student policy should use blind obs / history obs; teacher or critic can use privileged obs."
+  - "Large logs, videos, and checkpoints should not be committed."

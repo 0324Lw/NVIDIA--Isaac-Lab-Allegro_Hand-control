@@ -1,0 +1,19 @@
+task:
+  name: "allegro_task1_pose_tracking"
+  robot: "Allegro Hand"
+  project_type: "educational pure-RL baseline"
+  description: >
+    Task1 trains Allegro Hand to track generated target joint poses.
+    The dataset contains semantic poses and random pose targets.
+
+spaces:
+  action_dim: 16
+  actor_obs_dim: 64
+  frame_stack: 1
+
+assets:
+  dataset_path: "assets/motions/task1_target_poses.pt"
+
+notes:
+  - "This is a pure-RL baseline."
+  - "High-quality dexterous manipulation can benefit from mocap or demonstrations, but Task1 pose tracking can be trained with generated targets."
